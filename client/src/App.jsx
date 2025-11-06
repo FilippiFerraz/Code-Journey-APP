@@ -1,19 +1,18 @@
-// client/src/App.jsx
-
 import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login/Login.jsx'; // Importe sua página de Login
+import Login from './pages/Login/Login.jsx';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword.jsx';
-// Em breve: import Dashboard from './pages/Dashboard/Dashboard';
+import Home from './pages/Home/Home.jsx';
+import VerifyCode from './pages/VerifyCode/VerifyCode.jsx'; // 1. Importe o novo componente
 
 function App() {
   return (
     <Routes>
-      {/* A Rota "/" (página inicial) vai renderizar o componente de Login */}
       <Route path="/" element={<Login />} />
       <Route path="/esqueci-senha" element={<ForgotPassword />} />
-      {/* Exemplo de como você adicionará novas rotas: */}
-      {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-      {/* <Route path="/cadastro" element={<Register />} /> */}
+      <Route path="/home" element={<Home />} />
+
+      {/* 2. Adicione a nova rota */}
+      <Route path="/verificar-codigo" element={<VerifyCode />} />
     </Routes>
   );
 }

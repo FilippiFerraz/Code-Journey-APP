@@ -1,3 +1,5 @@
+/* client/src/pages/Login/Login.css */
+
 /* Importando uma fonte do Google Fonts que combina com o estilo "game" */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
@@ -115,6 +117,7 @@
   font-family: 'Bangers', cursive; /* Fonte especial para botões */
   letter-spacing: 1.5px;
   transition: background-color 0.2s ease;
+  clear: both; /* Garante que fique abaixo de itens flutuantes (como o 'reenviar') */
 }
 
 .btn-primary {
@@ -195,6 +198,7 @@
   height: auto;
 }
 
+/* --- Estilos para Título/Subtítulo do Formulário --- */
 .form-title {
   font-family: 'Bangers', cursive;
   font-size: 28px;
@@ -210,4 +214,27 @@
   color: #555;
   margin-bottom: 25px;
   line-height: 1.4;
+}
+
+/* === (NOVAS CLASSES) Estilo para link de Reenviar Código === */
+.resend-link-container {
+  text-align: right;
+  margin-top: -10px; /* Puxa para mais perto do input */
+  margin-bottom: 20px;
+}
+
+.resend-code-link {
+  display: inline-block; /* Não ocupa a linha toda */
+  background-color: #00aaff; /* Azul do protótipo */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px; /* Pílula */
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.resend-code-link:hover {
+  background-color: #0088cc;
 }

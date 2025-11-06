@@ -1,0 +1,160 @@
+/* client/src/pages/Home/Home.css */
+
+/* Importa a fonte pixelada para a história */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Importa o 'Bangers' que já usamos */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/* --- Variáveis de Cor (do protótipo) --- */
+:root {
+  --home-bg-top: #0099ff;
+  --home-bg-bottom: #00cc99;
+  --header-purple: #4d004d; /* Roxo bem escuro para o header */
+  --modal-purple: #6a0dad; /* Roxo do pop-up (o mesmo do fundo do login) */
+  --modal-border: #ff00ff; /* Borda rosa-neon */
+  --pixel-font: 'Press Start 2P', cursive;
+  --title-font: 'Bangers', cursive;
+  --button-green: #adff2f; /* Verde-limão */
+}
+
+/* --- Base da Página --- */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+}
+
+/* --- Cabeçalho --- */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-purple);
+  padding: 10px 20px;
+  border-bottom: 4px solid var(--modal-border);
+}
+
+.home-title {
+  font-family: var(--title-font);
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.header-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* --- Barra de Stats --- */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  font-family: var(--title-font);
+  font-size: 24px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-item span {
+  /* Para o emoji/ícone */
+  font-size: 20px;
+}
+
+/* === CENA DO JOGO (COM AS CORREÇÕES) === */
+.game-scene {
+  flex: 1; /* Ocupa todo o espaço restante */
+  position: relative; /* ESSENCIAL para posicionar os filhos */
+
+  /* --- Background com a imagem que você enviou --- */
+  background-image: url('../../assets/fundo_code_journey.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+  /* Removemos o padding para ter controle total do posicionamento */
+  padding: 0;
+}
+
+/* === POSICIONAMENTO DOS PERSONAGENS (COM AS CORREÇÕES) === */
+.scene-hero {
+  position: absolute; /* Posição absoluta relativa ao .game-scene */
+  width: 150px; /* Ajuste o tamanho conforme sua imagem */
+  height: auto;
+  left: 10%; /* % da esquerda */
+  bottom: 10%; /* % de baixo */
+  z-index: 2; /* Fica na frente do fundo */
+}
+
+.scene-quest-giver {
+  position: absolute; /* Posição absoluta relativa ao .game-scene */
+  width: 250px; /* Ajuste o tamanho conforme sua imagem */
+  height: auto;
+  right: 15%; /* % da direita */
+  bottom: 5%; /* % de baixo (um pouco mais baixo que o herói) */
+  z-index: 2; /* Fica na frente do fundo */
+}
+
+/* --- Pop-up / Modal da História (Sem mudanças) --- */
+.intro-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.intro-modal-content {
+  background-color: var(--modal-purple);
+  border: 10px solid var(--modal-border);
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+.intro-text-area {
+  font-family: var(--pixel-font);
+  font-size: 10px; /* Fontes pixeladas são melhores pequenas */
+  line-height: 2.2; /* Espaçamento de linha alto para legibilidade */
+  max-height: 400px;
+  overflow-y: auto; /* Adiciona scroll se o texto for muito grande */
+}
+
+.intro-text-area p {
+  margin-bottom: 20px;
+}
+
+.intro-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 30px;
+  background-color: var(--button-green);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--title-font);
+  font-size: 22px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.intro-button:hover {
+  transform: scale(1.05);
+}
