@@ -1,20 +1,15 @@
 /* client/src/pages/Home/Home.css */
 
-/* Importa a fonte pixelada para a história */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-/* Importa o 'Bangers' que já usamos */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
-/* --- Variáveis de Cor (do protótipo) --- */
 :root {
-  --home-bg-top: #0099ff;
-  --home-bg-bottom: #00cc99;
-  --header-purple: #4d004d; /* Roxo bem escuro para o header */
-  --modal-purple: #6a0dad; /* Roxo do pop-up (o mesmo do fundo do login) */
-  --modal-border: #ff00ff; /* Borda rosa-neon */
+  --header-purple: #4d004d;
+  --modal-purple: #6a0dad;
+  --modal-border: #ff00ff;
   --pixel-font: 'Press Start 2P', cursive;
   --title-font: 'Bangers', cursive;
-  --button-green: #adff2f; /* Verde-limão */
+  --button-green: #adff2f;
 }
 
 /* --- Base da Página --- */
@@ -65,52 +60,57 @@
 }
 
 .stat-item span {
-  /* Para o emoji/ícone */
   font-size: 20px;
 }
 
-/* === CENA DO JOGO (COM AS CORREÇÕES) === */
+/* === CENA DO JOGO === */
 .game-scene {
-  flex: 1; /* Ocupa todo o espaço restante */
+  flex: 1;
   position: relative; /* ESSENCIAL para posicionar os filhos */
 
-  /* --- Background com a imagem que você enviou --- */
-  background-image: url('../../assets/fundo_code_journey.png');
-  background-size: cover;
-  background-position: center bottom;
+  /* --- Background: NOVO MAPA --- */
+  background-image: url('../../assets/mapa_atos.png');
+  background-size: cover; /* Cobre a área toda */
+  background-position: center top; /* Alinha pelo topo */
   background-repeat: no-repeat;
 
-  /* Removemos o padding para ter controle total do posicionamento */
   padding: 0;
 }
 
-/* === POSICIONAMENTO DOS PERSONAGENS (COM AS CORREÇÕES) === */
-.scene-hero {
-  position: absolute; /* Posição absoluta relativa ao .game-scene */
-  width: 150px; /* Ajuste o tamanho conforme sua imagem */
+/* --- POSICIONAMENTO DO PORTAL --- */
+.scene-portal {
+  position: absolute;
+  width: 150px; /* Ajuste o tamanho para cobrir o desenho */
   height: auto;
-  left: 10%; /* % da esquerda */
-  bottom: 10%; /* % de baixo */
-  z-index: 2; /* Fica na frente do fundo */
+  
+  /* Coordenadas para o Ato 1 (Ajustado para sua imagem) */
+  top: 15%; 
+  left: 55%;
+  
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  /* Opcional: Se você quiser que o portal seja invisível e só sirva para o clique, 
+     descomente a linha abaixo (opacity: 0). 
+     Mas deixar visível cria um efeito legal de "ativo". */
+  /* opacity: 0; */
 }
 
-.scene-quest-giver {
-  position: absolute; /* Posição absoluta relativa ao .game-scene */
-  width: 250px; /* Ajuste o tamanho conforme sua imagem */
-  height: auto;
-  right: 15%; /* % da direita */
-  bottom: 5%; /* % de baixo (um pouco mais baixo que o herói) */
-  z-index: 2; /* Fica na frente do fundo */
+/* Efeito ao passar o mouse */
+.scene-portal:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px var(--modal-border));
 }
 
-/* --- Pop-up / Modal da História (Sem mudanças) --- */
+/* --- Pop-up / Modal da História --- */
 .intro-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,10 +130,10 @@
 
 .intro-text-area {
   font-family: var(--pixel-font);
-  font-size: 10px; /* Fontes pixeladas são melhores pequenas */
-  line-height: 2.2; /* Espaçamento de linha alto para legibilidade */
+  font-size: 10px;
+  line-height: 2.2;
   max-height: 400px;
-  overflow-y: auto; /* Adiciona scroll se o texto for muito grande */
+  overflow-y: auto;
 }
 
 .intro-text-area p {
@@ -157,4 +157,33 @@
 
 .intro-button:hover {
   transform: scale(1.05);
+}
+
+/* Rodapé */
+.app-footer {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 2px solid #ccc;
+    z-index: 10;
+}
+
+.footer-icon-link {
+    text-decoration: none;
+    font-size: 28px;
+    transition: transform 0.2s;
+    opacity: 0.6; 
+    cursor: pointer;
+}
+
+.footer-icon-link:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.footer-icon-link.active {
+    opacity: 1;
+    filter: drop-shadow(0 0 2px purple); 
 }

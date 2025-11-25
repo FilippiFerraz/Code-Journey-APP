@@ -1,0 +1,155 @@
+/* client/src/pages/DifficultySelection/DifficultySelection.css */
+
+/* Importa as fontes */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+:root {
+    --header-purple-ato: #800080; /* Roxo do cabeçalho ATO 1 */
+    --card-purple-bg: #9900cc; /* Roxo vibrante do card central */
+    --button-dark-bg: #3d003d; /* Roxo bem escuro dos botões */
+    --cyan-line: #00ffff; /* Linha divisória */
+    --footer-bg: #4d004d; /* Roxo do rodapé */
+    --text-white: #ffffff;
+    --pixel-font: 'Press Start 2P', cursive;
+    --title-font: 'Bangers', cursive;
+}
+
+/* --- Estrutura Principal da Página --- */
+.difficulty-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    background-color: #000; /* Fundo de segurança */
+}
+
+/* --- Cabeçalho "ATO 1" --- */
+.ato-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-purple-ato);
+    padding: 15px 20px;
+    color: var(--text-white);
+    border-bottom: 3px solid #5e005e; /* Uma borda sutil */
+}
+
+.ato-title {
+    font-family: var(--pixel-font);
+    font-size: 20px;
+    margin: 0;
+}
+
+.header-logo-small {
+    height: 35px;
+    width: auto;
+}
+
+/* --- Área de Conteúdo Principal (Background) --- */
+.main-content-bg {
+    flex: 1; /* Ocupa o espaço entre header e footer */
+    background-image: url('../../assets/fundo_code_journey.png'); /* Reutiliza o fundo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o card verticalmente e horizontalmente */
+    position: relative;
+}
+
+/* --- Card Central Roxo --- */
+.difficulty-card {
+    background-color: var(--card-purple-bg);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    color: var(--text-white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Para ajustar elementos internos se precisar */
+    top: -20px; /* Um pequeno ajuste para subir um pouco o card, como no protótipo */
+}
+
+.difficulty-title {
+    font-family: var(--pixel-font);
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.divider-line {
+    height: 3px;
+    background-color: var(--cyan-line);
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+/* --- Botões de Dificuldade --- */
+.difficulty-buttons-row {
+    display: flex;
+    justify-content: space-around; /* Espaça os botões */
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.btn-difficulty {
+    background-color: var(--button-dark-bg);
+    color: var(--text-white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px; /* Bordas bem arredondadas */
+    font-family: var(--pixel-font);
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    flex: 1; /* Faz os botões tentarem ter o mesmo tamanho */
+    max-width: 140px;
+}
+
+.btn-difficulty:hover {
+    transform: scale(1.05);
+    background-color: #5e005e;
+}
+
+/* --- Imagem das Espadas --- */
+.swords-image {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem */
+    /* O protótipo mostra as espadas saindo um pouco do card. 
+       Vamos tentar posicionar relativamente para dar esse efeito */
+    position: relative;
+    bottom: -40px; /* Empurra para baixo para sair do card */
+}
+
+
+/* --- Rodapé / Navigation Bar --- */
+.app-footer {
+    background-color: var(--footer-bg);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 3px solid var(--header-purple-ato);
+}
+
+.footer-icon-link {
+    text-decoration: none;
+    font-size: 28px;
+    transition: transform 0.2s;
+    /* Cor padrão dos ícones inativos */
+    opacity: 0.6; 
+}
+
+.footer-icon-link:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Estilo para o ícone ativo (Home) */
+.footer-icon-link.active {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--text-white));
+}

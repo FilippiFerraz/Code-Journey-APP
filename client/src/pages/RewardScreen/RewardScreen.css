@@ -1,0 +1,164 @@
+/* client/src/pages/RewardScreen/RewardScreen.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+:root {
+  --header-purple: #800080;
+  --card-purple: #6a0dad;
+  --victory-green: #00c853; /* Verde vibrante da vitória */
+  --text-white: #ffffff;
+  --text-shadow: 2px 2px 0 #000;
+}
+
+.reward-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff;
+}
+
+/* --- Header --- */
+.mission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-purple);
+  padding: 10px 20px;
+  color: var(--text-white);
+  border-bottom: 4px solid #5e005e;
+}
+
+.mission-header-title {
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* --- Cena da Recompensa --- */
+.reward-scene {
+  position: relative;
+  height: 55vh; /* Ocupa um bom espaço */
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Banner Superior (Vitória Épica) */
+.victory-banner-top {
+  position: absolute;
+  top: 20px;
+  background-color: var(--victory-green);
+  width: 80%;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: black;
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+  line-height: 1.2;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  z-index: 10;
+  text-transform: uppercase;
+}
+
+/* Insígnia Central */
+.insignia-container {
+  background-color: var(--victory-green);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 200, 83, 0.6); /* Brilho verde */
+  z-index: 5;
+  animation: floatInsignia 3s ease-in-out infinite;
+}
+
+@keyframes floatInsignia {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.insignia-img {
+  width: 100px;
+  height: auto;
+}
+
+/* Banner Inferior (Nome da Insígnia) */
+.victory-banner-bottom {
+  position: absolute;
+  bottom: 20px;
+  background-color: var(--victory-green);
+  width: 90%;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: black;
+  font-family: 'Bangers', cursive;
+  font-size: 18px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+/* --- Área de Narrativa (Roxa) --- */
+.reward-narrative-section {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.reward-card {
+  background-color: var(--header-purple); /* Roxo fundo */
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--text-white);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.reward-text {
+  font-family: 'Bangers', cursive;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.btn-avante {
+  background-color: #32cd32;
+  color: black;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #228b22;
+  transition: transform 0.1s;
+}
+
+.btn-avante:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+.app-footer {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 2px solid #ccc;
+}

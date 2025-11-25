@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
-import './Home.css';
-import logo from '../../assets/logo.png'; // Reutilizando o logo
+// client/src/pages/Home/Home.jsx
 
-// PLACEHOLDERS - Você precisará adicionar essas imagens
-import heroImg from '../../assets/hero-pixel.png'; // Imagem do seu herói
-import questGiverImg from '../../assets/quest-giver.png'; // Imagem do "NPC"
-// A imagem 'fundo_code_journey.png' é carregada pelo CSS
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import './Home.css';
+import logo from '../../assets/logo.png';
+
+// Importação apenas do Portal (Os outros elementos já estão no background)
+import portalImg from '../../assets/portal_codej.png';
 
 const Home = () => {
-  // 1. Estado para controlar a visibilidade do pop-up
   const [showIntro, setShowIntro] = useState(true);
+  const navigate = useNavigate();
 
-  // 2. Função para fechar o pop-up
   const handleCloseIntro = () => {
     setShowIntro(false);
+  };
+
+  const handlePortalClick = () => {
+    navigate('/dificuldade');
   };
 
   return (
     <div className="home-container">
       {/* === O POP-UP DE INTRODUÇÃO === */}
-      {/* Ele só aparece se 'showIntro' for verdadeiro */}
       {showIntro && (
         <div className="intro-modal-overlay">
           <div className="intro-modal-content">
@@ -29,19 +32,17 @@ const Home = () => {
               </p>
               <p>
                 A fronteira entre o código e o caos está ameaçada, e apenas os
-                Mestres em JavaScript podem restaurar a ordem. Sua jornada seguirá
-                pelos portais que levam a campos de batalha.
+                Mestres em JavaScript podem restaurar a ordem. Sua jornada
+                seguirá pelos portais que levam a campos de batalha.
               </p>
               <p>
                 A cada Desafio de programação que você solucionar com sucesso,
                 você atacará o Oponente, ganhando Pontos de Experiência para
-                evoluir seu Personagem e Insígnias que provam sua maestria. Se
-                falhar, o monstro irá contra-atacar, forçando você a refinar seu
-                código.
+                evoluir seu Personagem e Insígnias que provam sua maestria.
               </p>
               <p>
-                Conclua todos os módulos, adquira novas habilidades, e garanta seu
-                lugar entre os melhores no Ranking Global!
+                Conclua todos os módulos, adquira novas habilidades, e garanta
+                seu lugar entre os melhores no Ranking Global!
               </p>
             </div>
             <button onClick={handleCloseIntro} className="intro-button">
@@ -59,7 +60,6 @@ const Home = () => {
 
       {/* === BARRA DE STATS === */}
       <div className="stats-bar">
-        {/* Para os ícones, você usará a 'react-icons' no futuro */}
         <div className="stat-item">
           <span>⚔️</span> 7
         </div>
@@ -73,14 +73,26 @@ const Home = () => {
 
       {/* === CENA PRINCIPAL DO JOGO === */}
       <main className="game-scene">
-        {/* As imagens são posicionadas pelo CSS */}
-        <img src={heroImg} alt="Herói" className="scene-hero" />
+        
+        {/* Apenas o Portal Funcional é renderizado aqui.
+            O fundo, herói e caminhos vêm da imagem CSS 'mapa_atos.png' */}
+        
         <img
-          src={questGiverImg}
-          alt="Mestre do Jogo"
-          className="scene-quest-giver"
+          src={portalImg}
+          alt="Portal Ato 1"
+          className="scene-portal"
+          onClick={handlePortalClick}
         />
       </main>
+
+      {/* === RODAPÉ === */}
+      <footer className="app-footer">
+        <Link to="#" className="footer-icon-link">🏆</Link>
+        <Link to="#" className="footer-icon-link">👤</Link>
+        <Link to="/home" className="footer-icon-link active">🏠</Link>
+        <Link to="#" className="footer-icon-link">⚙️</Link>
+      </footer>
+
     </div>
   );
 };

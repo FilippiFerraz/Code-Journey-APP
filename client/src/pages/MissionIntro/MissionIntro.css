@@ -1,0 +1,174 @@
+/* client/src/pages/MissionIntro/MissionIntro.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+:root {
+  --header-purple: #800080;
+  --card-purple: #6a0dad;
+  --btn-green: #32cd32;
+  --text-white: #ffffff;
+}
+
+/* Container Geral */
+.mission-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff;
+}
+
+/* Cabeçalho */
+.mission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-purple);
+  padding: 10px 20px;
+  color: var(--text-white);
+  border-bottom: 4px solid #5e005e;
+}
+
+.mission-header-title {
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* --- Parte Superior: Cena Visual --- */
+.scene-container {
+  position: relative;
+  height: 55vh;
+  width: 100%;
+  /* Removemos background-image daqui. Usaremos tags <img> */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Card do Título da Missão (Flutuante) */
+.mission-title-card {
+  position: absolute;
+  top: 20px;
+  background-color: var(--header-purple);
+  width: 85%;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: var(--text-white);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.mission-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.mission-name {
+  font-family: 'Bangers', cursive;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+/* --- IMAGENS DA CENA --- */
+
+/* Classe para a imagem de fundo da vila (Passos 0 e 1) */
+.scene-background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que cubra a área sem distorcer */
+  z-index: 1;
+}
+
+/* Herói na Vila (Passos 0 e 1) - Fica sobre o fundo */
+.hero-scene {
+  position: absolute;
+  bottom: 0;
+  width: 130px;
+  height: auto;
+  z-index: 5;
+}
+
+/* Classe para a SUA NOVA IMAGEM ÚNICA de batalha (Passo 2) */
+.battle-scene-complete {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cobre toda a área */
+  z-index: 2;
+}
+
+/* --- REMOVIDOS: .dragon-boss e .hero-combat não são mais necessários --- */
+
+/* --- Parte Inferior: Narrativa --- */
+.narrative-section {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+}
+
+.narrative-card {
+  background-color: var(--header-purple);
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-white);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.narrative-text {
+  font-family: 'Bangers', cursive;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.highlight-name {
+  color: #adff2f;
+}
+
+/* Botão AVANTE */
+.btn-avante {
+  background-color: #32cd32;
+  color: black;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #228b22;
+  transition: transform 0.1s;
+}
+
+.btn-avante:hover {
+  transform: scale(1.05);
+  background-color: #40e040;
+}
+
+/* Rodapé */
+.app-footer {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 2px solid #ccc;
+}

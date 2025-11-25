@@ -1,0 +1,173 @@
+/* client/src/pages/LevelSelection/LevelSelection.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+:root {
+  --header-purple: #800080;
+  --wood-dark: #5c3a21; /* Cor da borda da madeira */
+  --wood-light: #d4a76a; /* Cor do fundo da madeira */
+  --btn-active: #9900cc; /* Roxo do nível ativo */
+  --btn-locked: #a9a9a9; /* Cinza do nível bloqueado */
+  --text-white: #ffffff;
+}
+
+/* Container Geral */
+.level-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #000;
+}
+
+/* Cabeçalho */
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-purple);
+  padding: 10px 20px;
+  color: var(--text-white);
+  border-bottom: 3px solid #5e005e;
+  z-index: 10;
+}
+
+.level-header-title {
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* --- Parte Superior: Cena da Masmorra --- */
+.top-scene-container {
+  height: 35vh; /* Ocupa 35% da altura da tela */
+  background-image: url('../../assets/arena_bg.png'); /* Imagem dos tijolos */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Alinha o herói no chão */
+}
+
+.hero-standing {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px; /* Pequeno ajuste para não colar no chão */
+}
+
+/* --- Parte Inferior: Seleção de Níveis --- */
+.bottom-selection-container {
+  flex: 1; /* Ocupa o resto da tela */
+  background-image: url('../../assets/fundo_code_journey.png'); /* Fundo da floresta */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* --- Placa de Madeira (Simulada com CSS) --- */
+.wooden-board {
+  background-color: var(--wood-light);
+  border: 8px solid var(--wood-dark);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 450px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Título "DESAFIOS" estilo placa */
+.board-title-plank {
+  background-color: #e67e22; /* Laranja madeira */
+  border: 4px solid var(--wood-dark);
+  border-radius: 8px;
+  padding: 10px 40px;
+  margin-top: -45px; /* Faz sair para fora da borda superior */
+  margin-bottom: 20px;
+  font-family: 'Bangers', cursive;
+  font-size: 28px;
+  color: white;
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* Botão de Fechar (X) */
+.close-btn {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  background-color: var(--wood-dark);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+  cursor: pointer;
+  border: 2px solid #3e2716;
+}
+
+/* Grid dos Botões */
+.levels-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas */
+  gap: 15px;
+  width: 100%;
+}
+
+.level-btn {
+  padding: 15px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Bangers', cursive;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+}
+
+.level-btn.active {
+  background-color: var(--btn-active);
+}
+
+.level-btn.locked {
+  background-color: var(--btn-locked);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.lock-icon {
+  font-size: 14px;
+}
+
+/* Espadas na parte inferior da placa */
+.board-swords {
+  width: 80px;
+  margin-top: 20px;
+  margin-bottom: -40px; /* Faz sair para fora da borda inferior */
+}
+
+/* Rodapé (Reutilizado) */
+.app-footer {
+    background-color: #4d004d;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 3px solid var(--header-purple);
+}
